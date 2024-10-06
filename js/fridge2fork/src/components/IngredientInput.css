@@ -1,0 +1,51 @@
+/* Ingredient input section styles */
+.ingredient-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Add a subtle hover effect for input */
+input[type="text"]:hover, input[type="text"]:focus {
+    border-color: #38a169;
+}
+
+button {
+    padding: 10px 16px;
+    background-color: #38a169; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #2f855a;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.recipe-card {
+    animation: fadeIn 0.5s ease-in-out;
+}

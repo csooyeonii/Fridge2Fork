@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './IngredientInput.css';
+
 
 /*
 function IngredientInput({ onAdd }) {
@@ -11,16 +13,23 @@ function IngredientInput({ onAdd }) {
             setIngredient(''); // Clear input after adding
         }
     };
+    const handleKeyPress = (e) => { // Pressing enter key enters the ingredient
+        if (e.key === 'Enter') {
+            handleAdd();
+        }
+    };
 
     return (
-        <div>
+        <div className="ingredient-input">
             <input
                 type="text"
                 value={ingredient}
                 onChange={(e) => setIngredient(e.target.value)}
+                onKeyPress={handleKeyPress}  // Listen for the Enter key
                 placeholder="Enter an ingredient"
+
             />
-            <button onClick={handleAdd}>Add Ingredient</button>
+            <button onClick={handleAdd} disabled={!ingredient}>Add Ingredient</button>
         </div>
     );
 }
@@ -50,7 +59,9 @@ const IngredientInput = ({ onAdd }) => {
                 type="text"
                 value={ingredient}
                 onChange={(e) => setIngredient(e.target.value)}
+                onKeyPress={handleKeyPress}  // Listen for the Enter key
                 placeholder="Enter an ingredient"
+
             />
             <button type="submit">Add Ingredient</button>
         </form>
