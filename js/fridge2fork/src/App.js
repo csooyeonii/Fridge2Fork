@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import IngredientInput from './components/IngredientInput';
 import RecipeList from './components/RecipeList';
 import ImageUpload from './components/ImageUpload';
+import ImageUploadDropzone from './components/ImageUploadDropzone';
 import './App.css';
 import logo from './logo.webp';
 
@@ -18,13 +19,13 @@ function App() {
     };
 
     const handleFileUpload = (file) => {
-        console.log('Uploaded file:', file);
-        // You can send this file to the backend for image recognition
+        console.log('Uploaded file:', file);    // send file to the backend for image recognition
     };
 
     return (
-        <div>
-            <h1>Fridge2Fork
+        <div className="app-container">
+            <h1 className ="app-title">
+                Fridge2Fork
                 <img
                     src={logo}
                     alt="Fridge2Fork Logo"
@@ -32,13 +33,15 @@ function App() {
                 />
             </h1>
             <IngredientInput onAdd={handleAddIngredient}/>
-            <ImageUpload onUpload={handleFileUpload}/>
             <ul>
                 {ingredients.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                 ))}
             </ul>
-            <RecipeList recipes={recipes} />
+
+            <ImageUploadDropzone/>
+
+            <RecipeList recipes={recipes}/>
         </div>
     );
 }
