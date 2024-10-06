@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import IngredientInput from './components/IngredientInput';
 import RecipeList from './components/RecipeList';
-import ImageUpload from './components/ImageUpload';
-import ImageUploadDropzone from './components/ImageUploadDropzone';
+// import ImageUpload from './components/ImageUpload';
+// import ImageUploadDropzone from './components/ImageUploadDropzone';
 import './App.css';
 import logo from './logo.webp';
 
 
 function App() {
     const [ingredients, setIngredients] = useState([]);
-    const [recipes, setRecipes] = useState([
+    const [recipes] = useState([
         { name: 'Pasta', description: 'A simple pasta recipe.' },
         { name: 'Salad', description: 'A healthy green salad.' }
     ]);
@@ -18,9 +18,9 @@ function App() {
         setIngredients([...ingredients, ingredient]);
     };
 
-    const handleFileUpload = (file) => {
-        console.log('Uploaded file:', file);    // send file to the backend for image recognition
-    };
+    // const handleFileUpload = (file) => {
+    //     console.log('Uploaded file:', file);    // send file to the backend for image recognition
+    // };
 
     return (
         <div className="app-container">
@@ -39,7 +39,7 @@ function App() {
                 ))}
             </ul>
 
-            <ImageUploadDropzone/>
+
 
             <RecipeList recipes={recipes}/>
         </div>
